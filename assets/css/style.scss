@@ -1,0 +1,429 @@
+// Color Variables
+$brown: #613410;
+$red-orange: #d45113;
+$carrot-orange: #f9a03f;
+$peach-yellow: #f8dda4;
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  cursor: default;
+}
+
+body {
+  overflow: hidden;
+  background-color: $red-orange;
+  .title {
+    transform: translateY(5%);
+    display: flex;
+    justify-content: center;
+    font-size: 80px;
+    color: $peach-yellow;
+  }
+  .main {
+    margin-top: 20px;
+    .tab {
+      gap: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      .input {
+        width: 300px;
+        height: 40px;
+        border: none;
+        outline: none;
+        font-size: 16px;
+        font-weight: 500;
+        background-color: $peach-yellow;
+        color: $brown;
+        border-radius: 100px;
+        padding: 0 20px;
+        cursor: text;
+      }
+      .input::placeholder {
+        color: $red-orange;
+      }
+      .button {
+        background: none;
+        border: none;
+        //
+        i {
+          cursor: pointer;
+          font-size: 40px;
+          color: $carrot-orange;
+        }
+      }
+    }
+    .tasks-panel {
+      margin-top: 50px;
+      display: flex;
+      overflow: hidden;
+      justify-content: center;
+      .panel {
+        border: $brown 5px solid;
+        width: 600px;
+        height: 400px;
+        overflow: scroll;
+        border-radius: 25px;
+        background-color: $peach-yellow;
+        .list {
+          .task {
+            margin: 10px 0;
+            list-style: none;
+            transform: translateX(2.5%);
+            background-color: $carrot-orange;
+            width: 95%;
+            height: 25%;
+            border-radius: 100px;
+            padding: 12.5px 20px;
+            padding-right: 0px;
+            font-size: 16px;
+            font-weight: 600;
+            color: $brown;
+            display: flex;
+            align-items: center;
+            border: 4px $red-orange solid;
+            overflow: hidden;
+            gap: 10px;
+            .erase {
+              cursor: pointer;
+              border: none;
+              background-color: $peach-yellow;
+              color: $carrot-orange;
+              border-radius: 10px;
+              width: 33px;
+              height: 33px;
+              font-size: 18px;
+              position: absolute;
+              right: 55px;
+              font-size: 18px;
+              //
+              i {
+                cursor: pointer;
+              }
+            }
+            //
+            i {
+              font-size: 18px;
+              position: relative;
+              top: 1px;
+              color: $red-orange;
+            }
+            hr {
+              height: 25px;
+              width: 0px;
+              color: $red-orange;
+              border: solid;
+            }
+          }
+        }
+      }
+      .panel::-webkit-scrollbar {
+        display: none;
+      }
+    }
+    .button-clean {
+      display: flex;
+      justify-content: center;
+      .clean {
+        position: absolute;
+        width: 144px;
+        height: 5%;
+        border-radius: 100px 100px 0 0;
+        margin-top: 19px;
+        border: none;
+        font-weight: 600;
+        background-color: $peach-yellow;
+        color: $brown;
+        font-size: 18px;
+        border-top: 5px $brown solid;
+        border-left: 5px $brown solid;
+        border-right: 5px $brown solid;
+      }
+    }
+  }
+}
+
+.notification-container {
+  --content-color: black;
+  --background-color: #f3f3f3;
+  --font-size-content: 0.75em;
+  --icon-size: 1em;
+
+  width: 300px;
+  position: absolute;
+  top: 20px;
+  left: 40%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+  list-style-type: none;
+  font-family: sans-serif;
+  color: var(--content-color);
+}
+
+.notification-item {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  gap: 1em;
+  overflow: hidden;
+  padding: 10px 15px;
+  border-radius: 6px;
+  box-shadow: rgba(111, 111, 111, 0.2) 0px 8px 24px;
+  background-color: var(--background-color);
+  transition: all 250ms ease;
+
+  --grid-color: rgba(225, 225, 225, 0.7);
+  background-image: linear-gradient(
+      0deg,
+      transparent 23%,
+      var(--grid-color) 24%,
+      var(--grid-color) 25%,
+      transparent 26%,
+      transparent 73%,
+      var(--grid-color) 74%,
+      var(--grid-color) 75%,
+      transparent 76%,
+      transparent
+    ),
+    linear-gradient(
+      90deg,
+      transparent 23%,
+      var(--grid-color) 24%,
+      var(--grid-color) 25%,
+      transparent 26%,
+      transparent 73%,
+      var(--grid-color) 74%,
+      var(--grid-color) 75%,
+      transparent 76%,
+      transparent
+    );
+  background-size: 55px 55px;
+}
+
+.notification-item svg {
+  transition: 250ms ease;
+}
+
+.notification-item:hover {
+  transform: scale(1.01);
+}
+
+.notification-item:active {
+  transform: scale(1.05);
+}
+
+.notification-container svg {
+  width: var(--icon-size);
+  height: var(--icon-size);
+  color: var(--content-color);
+}
+
+.notification-icon {
+  display: flex;
+  align-items: center;
+}
+/* Error */
+
+.error {
+  color: #7f1d1d;
+  background-color: #ff7e7e;
+  --grid-color: rgba(239, 68, 68, 0.25);
+  background-image: linear-gradient(
+      0deg,
+      transparent 23%,
+      var(--grid-color) 24%,
+      var(--grid-color) 25%,
+      transparent 26%,
+      transparent 73%,
+      var(--grid-color) 74%,
+      var(--grid-color) 75%,
+      transparent 76%,
+      transparent
+    ),
+    linear-gradient(
+      90deg,
+      transparent 23%,
+      var(--grid-color) 24%,
+      var(--grid-color) 25%,
+      transparent 26%,
+      transparent 73%,
+      var(--grid-color) 74%,
+      var(--grid-color) 75%,
+      transparent 76%,
+      transparent
+    );
+}
+
+.error svg {
+  color: #7f1d1d;
+}
+
+.error .notification-progress-bar {
+  background-color: #7f1d1d;
+}
+
+.error:hover {
+  background-color: #ff5f5f;
+}
+
+.notification-content {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0.5em;
+}
+
+.notification-text {
+  font-size: var(--font-size-content);
+  user-select: none;
+}
+
+.notification-close {
+  cursor: pointer;
+}
+
+.notification-progress-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 1px;
+  background: var(--content-color);
+  width: 100%;
+  transform: translateX(100%);
+  animation: progressBar 2s linear forwards;
+}
+
+@keyframes progressBar {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.clear {
+  clear: both;
+}
+
+.checkBox {
+  right: 2.5%;
+  top: 20%;
+  display: block;
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  border: 3px solid rgba(255, 255, 255, 0);
+  border-radius: 10px;
+  position: absolute;
+  overflow: hidden;
+  box-shadow: 0px 0px 0px 2px $peach-yellow;
+}
+
+@media (max-width: 768px) {
+  .checkBox {
+    position: absolute;
+    margin-right: 0.25rem;
+  }
+  .cube {
+    display: none;
+  }
+  p {
+    font-size: 15px;
+  }
+  .title {
+    text-align: center;
+    line-height: 100%;
+  }
+}
+
+.checkBox div {
+  width: 60px;
+  height: 60px;
+  background-color: $peach-yellow;
+  top: -52px;
+  left: -52px;
+  position: absolute;
+  transform: rotateZ(45deg);
+  z-index: 100;
+}
+
+.checkBox input[type="checkbox"]:checked + div {
+  left: -10px;
+  top: -10px;
+}
+
+.checkBox input[type="checkbox"] {
+  position: absolute;
+  left: 50px;
+  visibility: hidden;
+}
+
+.transition {
+  transition: 300ms ease;
+}
+
+.button-icon {
+  display: flex;
+  border: 3px #fff solid;
+  width: fit-content;
+  height: fit-content;
+  cursor: pointer;
+}
+
+.icon {
+  background-color: #fff;
+  padding: 10px 10px 5px 10px;
+}
+
+.icon svg {
+  width: 25px;
+  height: 25px;
+}
+
+.cube {
+  transition: all 0.4s;
+  transform-style: preserve-3d;
+  width: 200px;
+  height: 20px;
+}
+
+.button-icon:hover {
+  border-color: $carrot-orange;
+}
+
+.button-icon:hover .cube {
+  transform: rotateX(90deg);
+}
+
+.side {
+  position: absolute;
+  height: 47px;
+  width: 200px;
+  display: flex;
+  font-size: 0.8em;
+  justify-content: center;
+  align-items: center;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-weight: bold;
+}
+
+.top {
+  background: $carrot-orange;
+  color: #fff;
+  transform: rotateX(-90deg) translate3d(0, 13.5px, 2em);
+}
+
+.front {
+  background: #222229;
+  color: #fff;
+  transform: translate3d(0, 0, 1em);
+}
